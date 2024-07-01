@@ -43,6 +43,8 @@ function game(num) {
         element.style.backgroundImage = "none"
         element.innerHTML += "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Black_check.svg/800px-Black_check.svg.png' style='width: 50px; position'>"
         element.style.pointerEvents = "none"
+        element.style.scale = 1
+        element.style.boxShadow = "none"
 
     }
 }
