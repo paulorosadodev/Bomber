@@ -17,7 +17,7 @@ main {
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 320px;
-    height: 80%;
+    height: auto;
     top: 50%;
     left: 50%;
     gap: 10px;
