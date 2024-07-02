@@ -1,6 +1,5 @@
 let cont = 0
 
-
 function gerarNumeroAleatorio() {
 
     return Math.floor(Math.random() * 9) + 1;
@@ -65,12 +64,11 @@ function game(num) {
 
 }
 
-poke.addEventListener('click', change)
+document.getElementById('poke').addEventListener('click', change)
 
 function change() {
     const cards = document.querySelectorAll('.card');
-    console.log(poke.style)
-    if (poke.style.backgroundImage == 'url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/640px-Pokebola-pokeball-png-0.png")') {
+    if (String(window.getComputedStyle(poke)['backgroundImage']).includes("Poke")) {
         cards.forEach(card => {
             if (card.style.backgroundColor != "green") {
                 card.style.backgroundImage = "url(https://tcg.pokemon.com/assets/img/global/tcg-card-back.jpg)"

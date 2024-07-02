@@ -9,6 +9,7 @@ main {
     width: 100vw;
     height: 100vh;
     background-color: aquamarine;
+    background-attachment: fixed;
 }
 
 #cards {
@@ -103,7 +104,7 @@ span:hover {
 }
 
 #poke {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/640px-Pokebola-pokeball-png-0.png');
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/640px-Pokebola-pokeball-png-0.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
