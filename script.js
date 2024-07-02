@@ -1,5 +1,7 @@
 function gerarNumeroAleatorio() {
+
     return Math.floor(Math.random() * 9) + 1;
+
 }
 
 const number = gerarNumeroAleatorio()
@@ -17,8 +19,8 @@ cards.forEach(card => {
     });
 });
 
-
 function game(num) {
+
     if (num == number) {
         let bomb = document.getElementById(String(number))
 
@@ -45,6 +47,30 @@ function game(num) {
         element.style.pointerEvents = "none"
         element.style.scale = 1
         element.style.boxShadow = "none"
+    }
 
+}
+
+poke.addEventListener('click', change)
+
+function change() {
+    const cards = document.querySelectorAll('.card');
+    console.log(poke.style)
+    if (poke.style.backgroundImage == 'url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/640px-Pokebola-pokeball-png-0.png")') {
+        cards.forEach(card => {
+            if (card.style.backgroundColor != "green") {
+                card.style.backgroundImage = "url(https://tcg.pokemon.com/assets/img/global/tcg-card-back.jpg)"
+            }
+        });
+        poke.style.backgroundImage = "url('https://cdn.discordapp.com/attachments/759469975298768916/1257497185684033667/latest.png?ex=66849f04&is=66834d84&hm=6d932023c044f5b0a9a2700cac52b98cbcbac1205ada4fb1cea3a12fa820fc1c&')"
+        poke.style.backgroundSize = "cover"
+    } else {
+        cards.forEach(card => {
+            if (card.style.backgroundColor != "green") {
+                card.style.backgroundImage = "url(https://i.pinimg.com/originals/30/06/3f/30063f7f9d656fe19779ff2508578287.png)"
+            }
+        });
+        poke.style.backgroundImage = 'url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/640px-Pokebola-pokeball-png-0.png")'
+        poke.style.backgroundSize = "contain"
     }
 }
