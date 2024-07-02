@@ -56,7 +56,7 @@ main {
     display: none;
 }
 
-#died {
+#died, #win {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.894);
     width: 100%;
@@ -65,6 +65,10 @@ main {
     transition: all 1s;
     pointer-events: none;
     opacity: 0;
+}
+
+#win {
+    background-color: rgba(45, 120, 17, 0.627);
 }
 
 #warn {
@@ -125,6 +129,10 @@ span:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#win #warn span {
+    margin-top: 130px;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,3 +1,6 @@
+let cont = 0
+
+
 function gerarNumeroAleatorio() {
 
     return Math.floor(Math.random() * 9) + 1;
@@ -7,6 +10,7 @@ function gerarNumeroAleatorio() {
 const number = gerarNumeroAleatorio()
 
 var audio = new Audio('audio.mp3');
+var audio2 = new Audio('audio2.mp3');
 
 console.log(number)
 
@@ -47,6 +51,16 @@ function game(num) {
         element.style.pointerEvents = "none"
         element.style.scale = 1
         element.style.boxShadow = "none"
+        cont++
+        
+        if (cont == 8) {
+            setTimeout(function() {
+                win.style.opacity = "1";
+                win.style.pointerEvents = "auto"
+            }, 100);
+            audio2.play();
+        }
+
     }
 
 }
