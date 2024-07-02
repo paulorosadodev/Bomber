@@ -10,6 +10,7 @@ const number = gerarNumeroAleatorio()
 
 var audio = new Audio('audio.mp3');
 var audio2 = new Audio('audio2.mp3');
+var audio3 = new Audio('audio3.mp3');
 
 console.log(number)
 
@@ -23,11 +24,20 @@ cards.forEach(card => {
 });
 
 function game(num) {
-
+    
     if (num == number) {
         let bomb = document.getElementById(String(number))
-
-        bomb.style.backgroundImage = "url('https://img.odcdn.com.br/wp-content/uploads/2023/07/explosao-nuclear-1.png')"
+        
+        
+        audio3.play()
+        bomb.classList.add('is_flipped')
+        
+        bomb.style.backgroundImage = "none"
+        bomb.style.backgroundColor = 'red'
+        bomb.innerHTML += "<img src='https://cdn.discordapp.com/attachments/759469975298768916/1257769620056834109/x.png?ex=66859cbd&is=66844b3d&hm=814c8e9b6f1d5257f5bbc2d5a46988625e2e01f38532bcfec3b7dcd7078f27d7&' style='width: 50px; position'>"
+        bomb.style.pointerEvents = "none"
+        bomb.style.scale = 1
+        bomb.style.boxShadow = "none"
         
         explosion.style.display = "block"
         
@@ -44,12 +54,18 @@ function game(num) {
     } else {
         let element = document.getElementById(String(num))
         
+        audio3.play()
+        element.classList.add('is_flipped')
+        
+        element.style.borderRight = "none"
+        element.style.borderLeft = "0px solid aquamarine"
         element.style.backgroundColor = "green"
         element.style.backgroundImage = "none"
-        element.innerHTML += "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Black_check.svg/800px-Black_check.svg.png' style='width: 50px; position'>"
+        element.innerHTML += "<img src='https://cdn.discordapp.com/attachments/759469975298768916/1257762599358169109/check.png?ex=66859633&is=668444b3&hm=5aefe44f2892674441901d46205313fa80e9247480f543a5043748e6339e6825&g' style='width: 50px; position'>"
         element.style.pointerEvents = "none"
         element.style.scale = 1
         element.style.boxShadow = "none"
+
         cont++
         
         if (cont == 8) {
@@ -70,7 +86,7 @@ function change() {
     const cards = document.querySelectorAll('.card');
     if (String(window.getComputedStyle(poke)['backgroundImage']).includes("Poke")) {
         cards.forEach(card => {
-            if (card.style.backgroundColor != "green") {
+            if (card.style.backgroundColor != "green" && card.style.backgroundColor != 'red') {
                 card.style.backgroundImage = "url(https://tcg.pokemon.com/assets/img/global/tcg-card-back.jpg)"
             }
         });
@@ -78,7 +94,7 @@ function change() {
         poke.style.backgroundSize = "cover"
     } else {
         cards.forEach(card => {
-            if (card.style.backgroundColor != "green") {
+            if (card.style.backgroundColor != "green" && card.style.backgroundColor != 'red') {
                 card.style.backgroundImage = "url(https://i.pinimg.com/originals/30/06/3f/30063f7f9d656fe19779ff2508578287.png)"
             }
         });
