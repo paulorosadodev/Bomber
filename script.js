@@ -8,10 +8,6 @@ function gerarNumeroAleatorio() {
 
 const number = gerarNumeroAleatorio()
 
-var audio = new Audio('audio.mp3');
-var audio2 = new Audio('audio2.mp3');
-var audio3 = new Audio('audio3.mp3');
-
 console.log(number)
 
 const cards = document.querySelectorAll('.card');
@@ -28,19 +24,24 @@ function game(num) {
     if (num == number) {
         let bomb = document.getElementById(String(number))
         
-        
-        audio3.play()
+        var cardflip = new Audio('sounds/cardflip.mp3');
+
+        cardflip.play()
         bomb.classList.add('is_flipped')
+        
+        let img = document.createElement('img')
+        img.setAttribute('src', 'https://cdn.discordapp.com/attachments/759469975298768916/1257769620056834109/x.png?ex=66859cbd&is=66844b3d&hm=814c8e9b6f1d5257f5bbc2d5a46988625e2e01f38532bcfec3b7dcd7078f27d7&')
+        img.style.width = '50px'
+        bomb.appendChild(img)
         
         bomb.style.backgroundImage = "none"
         bomb.style.backgroundColor = 'red'
-        bomb.innerHTML += "<img src='https://cdn.discordapp.com/attachments/759469975298768916/1257769620056834109/x.png?ex=66859cbd&is=66844b3d&hm=814c8e9b6f1d5257f5bbc2d5a46988625e2e01f38532bcfec3b7dcd7078f27d7&' style='width: 50px; position'>"
         bomb.style.pointerEvents = "none"
         bomb.style.scale = 1
         bomb.style.boxShadow = "none"
         
         explosion.style.display = "block"
-        
+
         setTimeout(function() {
             died.style.opacity = "1";
             died.style.pointerEvents = "auto"
@@ -50,18 +51,26 @@ function game(num) {
             explosion.style.display = "none";
         }, 1700);
 
-        audio.play();
+        var explosion_sound = new Audio('sounds/explosion.mp3');
+
+        explosion_sound.play();
     } else {
         let element = document.getElementById(String(num))
         
-        audio3.play()
+        var cardflip = new Audio('sounds/cardflip.mp3');
+
+        cardflip.play()
         element.classList.add('is_flipped')
         
+        let img = document.createElement('img')
+        img.setAttribute('src', 'https://cdn.discordapp.com/attachments/759469975298768916/1257762599358169109/check.png?ex=66859633&is=668444b3&hm=5aefe44f2892674441901d46205313fa80e9247480f543a5043748e6339e6825&g')
+        img.style.width = '50px'
+        element.appendChild(img)
+
         element.style.borderRight = "none"
         element.style.borderLeft = "0px solid aquamarine"
         element.style.backgroundColor = "green"
         element.style.backgroundImage = "none"
-        element.innerHTML += "<img src='https://cdn.discordapp.com/attachments/759469975298768916/1257762599358169109/check.png?ex=66859633&is=668444b3&hm=5aefe44f2892674441901d46205313fa80e9247480f543a5043748e6339e6825&g' style='width: 50px; position'>"
         element.style.pointerEvents = "none"
         element.style.scale = 1
         element.style.boxShadow = "none"
@@ -73,7 +82,10 @@ function game(num) {
                 win.style.opacity = "1";
                 win.style.pointerEvents = "auto"
             }, 100);
-            audio2.play();
+
+            var win_sound = new Audio('win.mp3');
+
+            win_sound.play();
         }
 
     }
