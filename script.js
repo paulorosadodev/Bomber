@@ -24,7 +24,7 @@ function game(num) {
     if (num == number) {
         let bomb = document.getElementById(String(number))
         
-        var cardflip = new Audio('sounds/cardflip.mp3');
+        let cardflip = new Audio('sounds/cardflip.mp3');
 
         cardflip.play()
         bomb.classList.add('is_flipped')
@@ -51,13 +51,13 @@ function game(num) {
             explosion.style.display = "none";
         }, 1700);
 
-        var explosion_sound = new Audio('sounds/explosion.mp3');
+        let explosion_sound = new Audio('sounds/explosion.mp3');
 
         explosion_sound.play();
     } else {
         let element = document.getElementById(String(num))
         
-        var cardflip = new Audio('sounds/cardflip.mp3');
+        let cardflip = new Audio('sounds/cardflip.mp3');
 
         cardflip.play()
         element.classList.add('is_flipped')
@@ -83,7 +83,7 @@ function game(num) {
                 win.style.pointerEvents = "auto"
             }, 100);
 
-            var win_sound = new Audio('win.mp3');
+            let win_sound = new Audio('sounds/win.mp3');
 
             win_sound.play();
         }
