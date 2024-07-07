@@ -34,6 +34,10 @@ main {
     width: 100px;
     transition: all .3s;
     position: relative;
+    animation: appear .4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in;
+    animation-delay: var(--delay);
 }
 
 .is_flipped {
@@ -139,6 +143,17 @@ span:hover {
 
 #win #warn span {
     margin-top: 110px;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        scale: 0.7;
+    }
+
+    50% {
+        scale: 1.2;
+    }
 }
 
 @media screen and (max-width: 768px) {
